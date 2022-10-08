@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css?family=Ms+Madi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Corinthia&family=DM+Serif+Display&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  display: table;
+  margin: auto;
+  width: 100%;
+  background: linear-gradient(106.96deg, #010104 20.8%, #091620 82.72%);
+}
+
+body {
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 14vw;
+  margin-right: 0;
+  margin-top: 30px;
+}
+
+#preco {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5em;
+  margin-right: 50px;
+  margin-top: 100px;
+  padding: 0;
+  text-align: right;
+  padding-right: 28px;
+  padding-bottom: 10px;
+}
+
+#container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+  top: 300px;
+  right: 10px;
+  background: linear-gradient(
+    106.96deg,
+    rgba(60, 30, 30, 0.1),
+    rgba(101, 47, 47, 0.2)
+  );
+  width: 25vw;
+  height: 77%;
+}
+
+h2 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+  top: 225px;
+  right: 10px;
+  width: 25vw;
+  height: 55px;
+  /* align to center */
+  justify-content: center;
+  align-items: center;
+  background-color: #01010486;
+  color: #ffffff;
+  font-family: "DM Serif Display";
+  font-weight: 100;
+  font-size: 25px;
+}
+
+.input {
+  margin-top: 30px;
+  line-height: 25px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin-top: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 16px;
+  line-height: 25px;
+  color: #ffffff;
+  /* uppercase */
+  text-transform: uppercase;
+  text-align: end;
+  width: 15vw;
+}
+
+#titulo {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+  transform: scale(1.3);
+}
+#direita {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: right;
+  width: 50%;
+  height: 100%;
+}
+
+#subtitulo {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 20px;
+  left: 100px;
+  color: #ffffff;
+  padding-right: 75px;
+  text-align: right;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: rgba(224, 224, 224, 0.521);
+  border: 0px solid #ffffff;
+  color: white;
+  font-family: "Inter";
+  font-weight: 100;
+  font-size: 20px;
+  text-align: center;
+  width: 60px;
+  cursor: pointer;
+}
+.resultado {
+  position: absolute;
+  width: 549px;
+  height: 140px;
+  left: 445px;
+  top: 126px;
+
+  background: rgba(101, 47, 47, 0.3);
+}
+
+.resultado > .regiao {
+  position: absolute;
+  width: 92px;
+  height: 15px;
+  left: 10px;
+  top: 1px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+
+.resultado > .modelo {
+  position: absolute;
+  width: 300px;
+  height: 79px;
+  left: 30px;
+  top: -20px;
+
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 79px;
+
+  color: #ffffff;
+}
+
+h3 {
+  color: #ffffff;
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 79px;
+}
+.resultado > .area {
+  position: absolute;
+  width: 300px;
+  height: 79px;
+  left: 30px;
+  top: 30px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 79px;
+  color: #ffffff;
+}
+
+.preco {
+  position: absolute;
+  width: 222px;
+  height: 60px;
+  left: 305px;
+  top: 90px;
+  margin-bottom: -30px;
+  text-align: right;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 36px;
+
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    top: 20px;
+    left: 10px;
+    width: 94vw;
+    height: 20vh;
+  }
+  .label {
+    width: 50vw;
+    line-height: 30px;
+    font-size: 20px;
+  }
+  #direita {
+    background-color: #01010486;
+
+    height: 12vh;
+  }
+  #preco {
+    top: 200vh;
+    margin: 20px 50px 0px 20px;
+  }
+  #titulo {
+    display: none;
+  }
+  #subtitulo {
+    margin-bottom: 10px;
+  }
+
+  .input {
+    line-height: 30px;
+    font-size: 20px;
+    width: 40vw;
+  }
+  .head {
+    position: absolute;
+    top: 70vh;
+    z-index: 2;
+    right: 10vw;
+    width: 100vw;
+    margin: 0;
+  }
+  h2 {
+    display: none;
+  }
+}
