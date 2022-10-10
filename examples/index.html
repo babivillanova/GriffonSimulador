@@ -30,8 +30,8 @@
 				<div id="subtitulo">
 					2️⃣Carbon
 					<select name="modelo" id="modelo" form="modelo">
-						<option value="2S+Q">2S+Q</option>
-						<option value="3S">3S</option>
+						<!-- <option value="2S+Q">2S+Q</option> -->
+						<option value="3S" selected>3S</option>
 						<option value="3S+Q">3S+Q</option>
 						<option value="4S">4S</option>
 						<option value="4S+Q">4S+Q</option>
@@ -48,6 +48,8 @@
 				<label for="inD">Recuo frontal</label>
 				<label for="inE">Recuo lateral</label>
 				<label for="inB">Profundidade do terreno</label>
+				<!-- <button id="clip">Esconder cobertura</button> -->
+				<button id="cube">Adicionar Piscina</button>
 			</div>
 			<div class="input">
 				<form>
@@ -296,9 +298,9 @@
 				model,
 				IFCModel,
 				CASA,
-				spotLight,
 				lightHelper,
-				shadowCameraHelper; //modelo da casa
+				shadowCameraHelper,
+				localPlane; //modelo da casa
 			let camera, scene, renderer, geometry, orbit, all;
 			let geometries = [];
 			let verticesS = [];
@@ -317,7 +319,7 @@
 			let recuoFrontal = 5;
 			let profundidadeTerreno = 37 - recuoFrontal;
 			let recuoLateral = 1;
-			let fundodaCasa = 27;
+			let fundodaCasa = profundidadeTerreno - 2;
 			let larguraMorro = 3.7;
 			let larguraFrente = 7.3;
 			let sizeS = [];
@@ -395,7 +397,7 @@
 					], //preenchimento lateral 1
 					[
 						larguraMorro,
-						-1.4,
+						-2.5,
 						0,
 
 						larguraMorro,
@@ -407,13 +409,13 @@
 					],
 					[
 						larguraMorro,
-						-1.4,
+						-2.5,
 						-1.4,
 						larguraMorro,
 						-alturaCasa,
 						-recuoFrontal,
 						larguraMorro + 2,
-						-1.4,
+						-2.5,
 						-1.4,
 					],
 					[
@@ -424,18 +426,18 @@
 						-alturaCasa,
 						-recuoFrontal,
 						larguraMorro + 2,
-						-1.4,
+						-2.5,
 						-1.4,
 					],
 					[
 						larguraMorro,
-						-1.4,
+						-2.5,
 						-1.4,
 						larguraMorro,
 						-alturaCasa,
 						-recuoFrontal,
 						larguraMorro + larguraFrente + recuoLateral,
-						-1.4,
+						-2.5,
 						-1.4,
 					],
 					[
@@ -446,37 +448,37 @@
 						-alturaCasa,
 						-recuoFrontal,
 						larguraMorro + larguraFrente + recuoLateral,
-						-1.4,
-						-1.4,
-					],
-					[
-						larguraMorro + larguraFrente,
-						-1.4,
-						-1.4,
-						larguraMorro + larguraFrente,
-						-1.4,
-						4.2,
-						larguraMorro + larguraFrente + recuoLateral,
-						-1.4,
+						-2.5,
 						-1.4,
 					],
 					[
-						larguraMorro + larguraFrente + recuoLateral,
-						-1.4,
-						4.2,
 						larguraMorro + larguraFrente,
+						-2.5,
 						-1.4,
+						larguraMorro + larguraFrente,
+						-2.5,
 						4.2,
 						larguraMorro + larguraFrente + recuoLateral,
-						-1.4,
+						-2.5,
 						-1.4,
 					],
 					[
 						larguraMorro + larguraFrente + recuoLateral,
-						-1.4,
+						-2.5,
 						4.2,
 						larguraMorro + larguraFrente,
+						-2.5,
+						4.2,
+						larguraMorro + larguraFrente + recuoLateral,
+						-2.5,
 						-1.4,
+					],
+					[
+						larguraMorro + larguraFrente + recuoLateral,
+						-2.5,
+						4.2,
+						larguraMorro + larguraFrente,
+						-2.5,
 						4.2,
 						larguraMorro + larguraFrente,
 						0,
@@ -484,7 +486,7 @@
 					],
 					[
 						larguraMorro + larguraFrente + recuoLateral,
-						-1.4,
+						-2.5,
 						4.2,
 						larguraMorro + larguraFrente + recuoLateral,
 						0,
@@ -577,7 +579,7 @@
 						0,
 						fundodaCasa,
 						larguraMorro + 7.3 + recuoLateral,
-						-1.4,
+						-2.5,
 						4.2,
 
 						larguraMorro + 7.3 + recuoLateral,
@@ -586,15 +588,27 @@
 					], // fechamento lateral
 					[
 						larguraMorro + 7.3 + recuoLateral,
-						0,
-						fundodaCasa,
+						-2.5,
+						3,
 						larguraMorro + 7.3 + recuoLateral,
-						-1.4,
+						-2.5,
 						-1.4,
 						larguraMorro + 7.3 + recuoLateral,
 						-alturaCasa,
 						-recuoFrontal,
 					],
+					[0, 0, fundodaCasa, larguraMorro + 7.3, 0, fundodaCasa, 0, 0, 15],
+					[
+						larguraMorro + 7.3,
+						0,
+						fundodaCasa,
+						0,
+						0,
+						15,
+						larguraMorro + 7.3,
+						0,
+						15,
+					], // plano do quintal
 				];
 			}
 
@@ -613,6 +627,12 @@
 				side: DoubleSide,
 			});
 
+			const agua = new MeshPhongMaterial({
+				color: "blue",
+				flatShading: true,
+				side: DoubleSide,
+			});
+
 			const ifcLoader = new IFCLoader();
 			ifcLoader.ifcManager.setWasmPath("jsm/loaders/ifc/");
 
@@ -626,14 +646,25 @@
 
 			//add event listener on scroll screen
 
-			let doisSQ = "models/ifc/2S+Q.ifc";
-			let tresS = "models/ifc/3S.ifc";
-			let tresSQ = "models/ifc/3S+Q.ifc";
-			let quatrS = "models/ifc/4S.ifc";
-			let quatroSQ = "models/ifc/4S+Q.ifc";
-
 			let modelo = document.getElementById("modelo");
 			let inclinacao = document.getElementById("inclinacao");
+			let cube = document.getElementById("cube");
+
+			cube.onclick = function () {
+				const geometry = new THREE.BoxGeometry(3, 1.5, 5);
+				const piscina = new THREE.Mesh(geometry, agua);
+				piscina.position.set(1.5, -0.5, fundodaCasa - 3.2);
+
+				//add if statement to check if piscina is childelement of scene
+				if (scene.getObjectByName("piscina") === undefined) {
+					scene.add(piscina);
+					piscina.name = "piscina";
+					cube.innerHTML = "Remover Piscina";
+				} else {
+					scene.remove(scene.getObjectByName("piscina"));
+					cube.innerHTML = "Adicionar Piscina";
+				}
+			};
 
 			modelo.onchange = function () {
 				scene.remove(CASA);
@@ -648,8 +679,21 @@
 						scene.add(CASA);
 					});
 				}
+				if (modelo.value == "3S+Q") {
+					ifcLoader.load("models/ifc/3S+Q.ifc", function (object) {
+						CASA = object;
+						scene.add(CASA);
+					});
+				}
 				if (modelo.value == "4S") {
 					ifcLoader.load("models/ifc/4S.ifc", function (object) {
+						CASA = object;
+						scene.add(CASA);
+					});
+				}
+
+				if (modelo.value == "4S+Q") {
+					ifcLoader.load("models/ifc/4S+Q.ifc", function (object) {
 						CASA = object;
 						scene.add(CASA);
 					});
@@ -690,6 +734,7 @@
 					scene.remove(meshs[i]);
 					scene.remove(mesh);
 					profundidadeTerreno = this.value - parseFloat(recuoFrontal);
+					fundodaCasa = profundidadeTerreno - 2;
 					setSizeS();
 					geometries[i] = new BufferGeometry();
 					verticesS[i] = new Float32Array(sizeS[i]);
@@ -796,9 +841,9 @@
 				camera.rotation.z = 3.141;
 
 				const lights = [];
-				lights[0] = new PointLight(0xffffff, 0.5, 0);
-				lights[1] = new PointLight(0xffffff, 0.5, 0);
-				lights[2] = new PointLight(0xffffff, 0.5, 0);
+				lights[0] = new PointLight(0xffffff, 0.4, 0);
+				lights[1] = new PointLight(0xffffff, 0.4, 0);
+				lights[2] = new PointLight(0xffffff, 0, 0);
 				lights[3] = new THREE.DirectionalLight(0xdfebff, 1);
 				lights[0].position.set(0, 200, 0);
 				lights[1].position.set(100, 200, 100);
@@ -807,6 +852,28 @@
 				scene.add(lights[0]);
 				scene.add(lights[1]);
 				scene.add(lights[2]);
+				//scene.add(lights[3]);
+
+				lights[4] = new THREE.AmbientLight(0x404040); // soft white light
+				scene.add(lights[4]);
+				lights[5] = new THREE.HemisphereLight(0xffffbb, 0x080820, 0.2);
+				scene.add(lights[5]);
+				lights[6] = new THREE.SpotLight(0xffffff, 1, 0);
+				lights[6].position.set(50, 500, 10);
+				//scene.add(lights[6]);
+				lights[6].castShadow = true;
+				lights[6].shadow.mapSize.width = 512; // default
+				lights[6].shadow.mapSize.height = 512; // default
+				lights[6].shadow.camera.near = 0.5; // default
+				lights[6].shadow.camera.far = 500; // default
+				lights[6].shadow.bias = -0.005;
+
+				// lights[6].shadow.focus = 1;
+				//ADD HELPER LIGHTS[6]
+				const helper = new THREE.SpotLightHelper(lights[6]);
+				//add target object to the light
+				lights[6].target = new THREE.Object3D();
+				//scene.add(helper);
 
 				//Setup IFC Loader
 				// const ifcLoader = new IFCLoader();
@@ -820,28 +887,38 @@
 					scene.add(CASA);
 					CASA.receiveShadow = true;
 					CASA.castShadow = true;
+					//disable clipping planes
+					CASA.material.clippingPlanes = [localPlane];
+					CASA.material.clipIntersection = true;
+
 					render();
 				});
 
+				const localPlane = new THREE.Plane(
+					new THREE.Vector3(0, -1, 0),
+					parseFloat(alturaCasa) - 1
+				);
+
 				//Renderer
-				renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-				renderer.setClearColor(0x000000, 0); // the default
-				renderer.shadowMap.enabled = true;
-				renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+				// renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+				// renderer.setClearColor(0x000000, 0); // the default
+				// renderer.shadowMap.enabled = true;
+				// renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-				renderer.setSize(window.innerWidth, window.innerHeight);
-				renderer.setPixelRatio(window.devicePixelRatio);
-				document.body.appendChild(renderer.domElement);
-
-				// renderer = new THREE.WebGLRenderer({ antialias: true });
-				// renderer.setPixelRatio(window.devicePixelRatio);
 				// renderer.setSize(window.innerWidth, window.innerHeight);
-				// renderer.setClearColor(scene.fog.color);
-
+				// renderer.setPixelRatio(window.devicePixelRatio);
 				// document.body.appendChild(renderer.domElement);
 
-				// renderer.outputEncoding = THREE.sRGBEncoding;
-				// renderer.shadowMap.enabled = true;
+				renderer = new THREE.WebGLRenderer({ antialias: true });
+				renderer.setPixelRatio(window.devicePixelRatio);
+				renderer.setSize(window.innerWidth, window.innerHeight);
+				// renderer.setClearColor(scene.fog(0x000000, 0.5)); // precisa passar a cor como variavel
+
+				document.body.appendChild(renderer.domElement);
+
+				renderer.outputEncoding = THREE.sRGBEncoding;
+				renderer.shadowMap.enabled = true;
+				//renderer.clippingPlanes = [localPlane];
 
 				//Controls
 				const controls = new OrbitControls(camera, renderer.domElement);
