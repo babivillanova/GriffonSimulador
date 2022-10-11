@@ -144,6 +144,27 @@ h2 {
   text-align: right;
 }
 
+#cube,
+#cube2,
+#cube3 {
+  background: rgba(224, 224, 224, 0.521);
+  border: 0px solid #ffffff;
+  color: rgb(0, 0, 0);
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 12px;
+  width: 80%;
+  height: 25px;
+  cursor: pointer;
+  /* align item to the right */
+  align-self: flex-end;
+}
+
+/* add style for #cube activated */
+#cube:focus {
+  background: rgba(27, 151, 223, 0.774);
+}
+
 select {
   appearance: none;
   -webkit-appearance: none;
@@ -219,6 +240,9 @@ h3 {
   font-size: 22px;
   line-height: 79px;
   color: #ffffff;
+}
+
+.cube {
 }
 
 .preco {
@@ -339,6 +363,24 @@ input[type="range"]:focus::-ms-fill-upper {
   background: #5fb4d8;
 } */
 
+#containerPlano,
+#containerDeclive {
+  position: absolute;
+
+  flex-direction: row;
+  z-index: 1;
+  top: 300px;
+  right: 10px;
+  background: linear-gradient(
+    106.96deg,
+    rgba(60, 30, 30, 0.1),
+    rgba(101, 47, 47, 0.2)
+  );
+  width: 25vw;
+  height: 77%;
+  display: none;
+}
+
 @media screen and (max-width: 1000px) {
   #container {
     top: 20px;
@@ -383,7 +425,16 @@ input[type="range"]:focus::-ms-fill-upper {
   input#inB.bar,
   input#inC.bar,
   input#inD.bar,
-  input#inE.bar {
+  input#inE.bar,
+  input#inF.bar,
+  input#inG.bar,
+  input#inH.bar,
+  input#inI.bar,
+  input#inJ.bar,
+  input#inK.bar,
+  input#inL.bar,
+  input#inM.bar,
+  input#inN.bar {
     width: 0.01vw;
   }
 

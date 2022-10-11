@@ -22,9 +22,9 @@
 				<div id="subtitulo">
 					1️⃣Inclinação
 					<select name="inclinacao" id="inclinacao" form="inclinacao">
-						<option value="Plano"></option>
-						<option value="Declive"></option>
-						<option value="Aclive"></option>
+						<option value="Plano">Plano</option>
+						<option value="Declive">Declive</option>
+						<option value="Aclive" selected>Aclive</option>
 					</select>
 				</div>
 				<div id="subtitulo">
@@ -53,7 +53,7 @@
 			</div>
 			<div class="input">
 				<form>
-					<div id="slider">
+					<div id="slider" tag="slider">
 						<input
 							class="bar"
 							type="range"
@@ -65,12 +65,12 @@
 							onchange="outA.value=value"
 						/>
 						<span class="highlight"></span>
-						<output id="outA">6</output>
+						<output id="outA" >6</output>
 					</div>
 				</form>
 
 				<form>
-					<div id="slider">
+					<div id="slider" tag="slider">
 						<input
 							class="bar"
 							type="range"
@@ -86,7 +86,7 @@
 					</div>
 				</form>
 				<form>
-					<div id="slider">
+					<div id="slider" tag="slider">
 						<input
 							class="bar"
 							type="range"
@@ -102,7 +102,7 @@
 					</div>
 				</form>
 				<form>
-					<div id="slider">
+					<div id="slider" tag="slider">
 						<input
 							class="bar"
 							type="range"
@@ -118,7 +118,7 @@
 					</div>
 				</form>
 				<form>
-					<div id="slider">
+					<div id="slider" tag="slider">
 						<input
 							class="bar"
 							type="range"
@@ -133,6 +133,186 @@
 						<output id="outB">37</output>
 					</div>
 				</form>
+				<div style="font-size: 10px; line-height: 10px">
+					Aqui a piscina vai ter </br>um slider pra andar
+				</div>
+			</div>
+		</div>
+		<div id="containerPlano">
+			<div class="label">
+				<label for="inF">Largura do terreno</label>
+				
+				<label for="inG">Recuo frontal</label>
+				<label for="inH">Recuo lateral</label>
+				<label for="inI">Profundidade do terreno</label>
+				<!-- <button id="clip">Esconder cobertura</button> -->
+				<button id="cube2">Adicionar Piscina</button>
+			</div>
+			<div class="input">
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inF"
+							min="12"
+							max="20"
+							value="15"
+							step="0.1"
+							onchange="outF.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outF" >15</output>
+					</div>
+				</form>
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inG"
+							min="2"
+							max="7"
+							value="5"
+							step="0.5"
+							onchange="outG.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outG">5</output>
+					</div>
+				</form>
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inH"
+							min="0.5"
+							max="4"
+							value="1.5"
+							step="0.5"
+							onchange="outH.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outH">1.5</output>
+					</div>
+				</form>
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inI"
+							min="32"
+							max="45"
+							value="37"
+							step="0.1"
+							onchange="outI.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outI">37</output>
+					</div>
+				</form>
+				<div style="font-size: 10px; line-height: 10px">
+					Aqui a piscina vai ter </br>um slider pra andar
+				</div>
+			</div>
+		</div>
+		<div id="containerDeclive">
+			<div class="label">
+				<label for="inJ">Desnível do terreno</label>
+				<label for="inK">Altura da casa até a calçada</label>
+				<label for="inL">Recuo frontal</label>
+				<label for="inM">Recuo lateral</label>
+				<label for="inN">Profundidade do terreno</label>
+				<!-- <button id="clip">Esconder cobertura</button> -->
+				<button id="cube3">Adicionar Piscina</button>
+			</div>
+			<div class="input">
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inJ"
+							min="2.5"
+							max="10"
+							value="6"
+							step="0.5"
+							onchange="outJ.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outJ" >6</output>
+					</div>
+				</form>
+
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inK"
+							min="2.5"
+							max="7"
+							value="3.5"
+							step="0.1"
+							onchange="outK.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outK">3.5</output>
+					</div>
+				</form>
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inL"
+							min="2"
+							max="7"
+							value="5"
+							step="0.5"
+							onchange="outL.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outL">5</output>
+					</div>
+				</form>
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inM"
+							min="0.5"
+							max="4"
+							value="1.5"
+							step="0.5"
+							onchange="outM.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outM">1.5</output>
+					</div>
+				</form>
+				<form>
+					<div id="slider" tag="slider">
+						<input
+							class="bar"
+							type="range"
+							id="inN"
+							min="32"
+							max="45"
+							value="37"
+							step="0.1"
+							onchange="outN.value=value"
+						/>
+						<span class="highlight"></span>
+						<output id="outN">37</output>
+					</div>
+				</form>
+				<div style="font-size: 10px; line-height: 10px">
+					Aqui a piscina vai ter </br>um slider pra andar
+				</div>
 			</div>
 		</div>
 		<script
@@ -324,6 +504,7 @@
 			let larguraFrente = 7.3;
 			let sizeS = [];
 			let sizeS2 = [];
+			
 			function setSizeS() {
 				sizeS = [
 					[
@@ -611,10 +792,56 @@
 					], // plano do quintal
 				];
 			}
+		
 
-			function setSizeS2() {
-				sizeS2 = [[]];
+			function setSizeSPlano() {
+				sizeS = [
+				[
+						-recuoLateral - 0.1,
+						0,
+						-recuoFrontal,
+						-20,
+						0,
+						-recuoFrontal,
+						-recuoLateral - 0.1,
+						0,
+						profundidadeTerreno,
+					], //a, b d terreno vizinho esquerda
+					[
+						-20,
+						0,
+						profundidadeTerreno,
+						-20,
+						0,
+						-recuoFrontal,
+						-recuoLateral -0.1,
+						0,
+						profundidadeTerreno,
+					], //terrreno vizinho
+						[-recuoLateral,0, -recuoFrontal, -recuoLateral, 0, profundidadeTerreno, larguraFrente + recuoLateral, 0, -recuoFrontal], //lote
+						[ -recuoLateral, 0, profundidadeTerreno, larguraFrente + recuoLateral, 0, -recuoFrontal, recuoLateral + larguraFrente, 0, profundidadeTerreno]	, //lote
+								[larguraFrente + recuoLateral +0.1, 0, -recuoFrontal, larguraFrente + recuoLateral + 0.1, 0, profundidadeTerreno, larguraFrente + recuoLateral + 20, 0, profundidadeTerreno], //lote
+							[larguraFrente + recuoLateral + 20, 0, profundidadeTerreno, larguraFrente + recuoLateral + 0.1, 0, -recuoFrontal, larguraFrente + recuoLateral + 20, 0, -recuoFrontal], //lote
+						]
 			}
+
+			function setSizeSDeclive() {
+				sizeS = [
+				[
+						-recuoLateral,
+						-alturaCasa,
+						-recuoFrontal,
+						-20,
+						-alturaCasa,
+						-recuoFrontal,
+						-recuoLateral,
+						desnivelTerreno,
+						profundidadeTerreno,
+					], //a, b d terreno vizinho esquerda
+					
+						];
+			}
+			
 			const material = new MeshPhongMaterial({
 				color: "#39542e",
 				flatShading: true,
@@ -637,18 +864,32 @@
 			ifcLoader.ifcManager.setWasmPath("jsm/loaders/ifc/");
 
 			//add loaded shader material
-
+			let slidersAclive = document.getElementById("container");
+			let slidersPlano = document.getElementById("containerPlano");
+			let slidersDeclive = document.getElementById("containerDeclive");
 			let sliderA = document.getElementById("inA");
 			let sliderB = document.getElementById("inB");
 			let sliderC = document.getElementById("inC");
 			let sliderD = document.getElementById("inD");
 			let sliderE = document.getElementById("inE");
+			let sliderF = document.getElementById("inF"); //plano 
+			let sliderG = document.getElementById("inG");
+			let sliderH = document.getElementById("inH");
+			let sliderI = document.getElementById("inI");//plano 
+			let sliderJ = document.getElementById("inJ"); //declive
+			let sliderK = document.getElementById("inK");
+			let sliderL = document.getElementById("inL");
+			let sliderM = document.getElementById("inM"); //declive
+			let sliderN = document.getElementById("inN"); //declive
+			
 
 			//add event listener on scroll screen
 
 			let modelo = document.getElementById("modelo");
 			let inclinacao = document.getElementById("inclinacao");
 			let cube = document.getElementById("cube");
+
+			setSizeS();
 
 			cube.onclick = function () {
 				const geometry = new THREE.BoxGeometry(3, 1.5, 5);
@@ -667,12 +908,8 @@
 			};
 
 			modelo.onchange = function () {
+				if (inclinacao.value == "Aclive") {
 				scene.remove(CASA);
-				// if (modelo.value == tresS){
-				// 	ifcLoader.load("models/3S.ifc", function (object) {
-				// 		scene.add(object);
-				// 	})
-				// }
 				if (modelo.value == "3S") {
 					ifcLoader.load("models/ifc/3S.ifc", function (object) {
 						CASA = object;
@@ -691,27 +928,92 @@
 						scene.add(CASA);
 					});
 				}
-
 				if (modelo.value == "4S+Q") {
 					ifcLoader.load("models/ifc/4S+Q.ifc", function (object) {
 						CASA = object;
 						scene.add(CASA);
 					});
+				}				
+				render();
+			}
+			else {
+				scene.remove(CASA);
+				if (modelo.value == "3S") {
+					ifcLoader.load("models/ifc/CarbonParaIFC.ifc", function (object) {
+						CASA = object;
+						scene.add(CASA);
+					});
 				}
-				// if (modelo.value == quatroSQ){
-				// 	ifcLoader.load("models/4S+Q.ifc", function (object) {
-				// 		scene.add(object);
-				// 	});
-				// }
+				if (modelo.value == "3S+Q") {
+					// ifcLoader.load("models/ifc/3S+Q.ifc", function (object) {
+					// 	CASA = object;
+					// 	scene.add(CASA);
+					// });
+				}
+				if (modelo.value == "4S") {
+					// ifcLoader.load("models/ifc/4S.ifc", function (object) {
+					// 	CASA = object;
+					// 	scene.add(CASA);
+					// });
+				}
+				if (modelo.value == "4S+Q") {
+					// ifcLoader.load("models/ifc/4S+Q.ifc", function (object) {
+					// 	CASA = object;
+					// 	scene.add(CASA);
+					// });
+				}				
+
+
+				render();
+			}
+			
+			
+			
+		}
+
+			inclinacao.onchange = function () {
+				scene.remove(CASA)
+				for (let i = 0; i < sizeS.length; i++) {
+					scene.remove(meshs[i]);
+					scene.remove(mesh);
+				}
+				sizeS.length = 0;
+				console.log(inclinacao.value)
+				
+				if (inclinacao.value == "Declive") {
+					setSizeSDeclive();
+					slidersAclive.style.display = "none";
+					slidersDeclive.style.display = "flex";
+					slidersPlano.style.display = "none";
+				} 
+				if (inclinacao.value == "Plano") {
+					setSizeSPlano();
+					slidersAclive.style.display = "none";
+					slidersDeclive.style.display = "none";
+					slidersPlano.style.display = "flex";
+
+				}
+				if (inclinacao.value== "Aclive") {
+					setSizeS();
+					slidersAclive.style.display = "flex";
+					slidersDeclive.style.display = "none";
+					slidersPlano.style.display = "none";
+				}
+
+				for (let i = 0; i < sizeS.length; i++) {
+					geometries[i] = new BufferGeometry();
+					verticesS[i] = new Float32Array(sizeS[i]);
+					geometries[i].setAttribute(
+						"position",
+						new BufferAttribute(verticesS[i], 3)
+					);
+					meshs[i] = new Mesh(geometries[i], material);
+					scene.add(meshs[i]);
+				}
 				render();
 			};
-			inclinacao.onchange = function () {
-				// console.log(inclinacao.value);
-			};
 
-			setSizeS();
-			setSizeS2();
-
+			
 			sliderA.oninput = function () {
 				for (let i = 0; i < sizeS.length; i++) {
 					scene.remove(meshs[i]);
@@ -816,6 +1118,71 @@
 				}
 				render();
 			};
+			sliderF.oninput = function () {
+				for (let i = 0; i < sizeS.length; i++) {
+					scene.remove(meshs[i]);
+					larguraFrente = parseFloat(this.value) - recuoLateral;
+					setSizeSPlano();
+					geometries[i] = new BufferGeometry();
+					verticesS[i] = new Float32Array(sizeS[i]);
+					geometries[i].setAttribute(
+						"position",
+						new BufferAttribute(verticesS[i], 3)
+					);
+					meshs[i] = new Mesh(geometries[i], material);
+					scene.add(meshs[i]);
+				}
+				render();
+			};
+			sliderG.oninput = function () {
+				for (let i = 0; i < sizeS.length; i++) {
+					scene.remove(meshs[i]);
+					recuoFrontal = parseFloat(this.value)
+					setSizeSPlano();
+					geometries[i] = new BufferGeometry();
+					verticesS[i] = new Float32Array(sizeS[i]);
+					geometries[i].setAttribute(
+						"position",
+						new BufferAttribute(verticesS[i], 3)
+					);
+					meshs[i] = new Mesh(geometries[i], material);
+					scene.add(meshs[i]);
+				}
+				render();
+			}
+			sliderH.oninput = function () {
+				for (let i = 0; i < sizeS.length; i++) {
+				scene.remove(meshs[i]);
+					recuoLateral = parseFloat(this.value)
+					setSizeSPlano();
+					geometries[i] = new BufferGeometry();
+					verticesS[i] = new Float32Array(sizeS[i]);
+					geometries[i].setAttribute(
+						"position",
+						new BufferAttribute(verticesS[i], 3)
+					);
+					meshs[i] = new Mesh(geometries[i], material);
+					scene.add(meshs[i]);
+				}
+				render();
+			}
+			sliderI.oninput = function () {
+				for (let i = 0; i < sizeS.length; i++) {
+				scene.remove(meshs[i]);
+					profundidadeTerreno = parseFloat(this.value)
+					setSizeSPlano();
+					geometries[i] = new BufferGeometry();
+					verticesS[i] = new Float32Array(sizeS[i]);
+					geometries[i].setAttribute(
+						"position",
+						new BufferAttribute(verticesS[i], 3)
+					);
+					meshs[i] = new Mesh(geometries[i], material);
+					scene.add(meshs[i]);
+				}
+				render();
+			}
+
 
 			init();
 			render();
