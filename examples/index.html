@@ -1009,7 +1009,29 @@
 				side: DoubleSide,
 			});
 
-			const ifcLoader = new IFCLoader();
+			
+			const loadingManager = new THREE.LoadingManager();
+
+			loadingManager.onStart = (url, item, total) => {
+				console.log("loading started");
+				//create alert to show loading started
+				alert("carregando");				
+			};
+
+			loadingManager.onProgress = (url, loaded, total) => {
+				console.log("loading finished");
+			};
+
+			loadingManager.onLoad = () => {
+				console.log("loading finished");
+				alert("use o scroll");	
+			};
+
+			loadingManager.onError = (url) => {
+				console.error("loading error");
+			};
+
+			const ifcLoader = new IFCLoader(loadingManager);
 			ifcLoader.ifcManager.setWasmPath("jsm/loaders/ifc/");
 
 			//add loaded shader material
@@ -1097,6 +1119,8 @@
 					ifcLoader.load("models/ifc/3S.ifc", function (object) {
 						CASA = object;
 						scene.add(CASA);
+						
+
 					});
 				}
 				if (modelo.value == "3S+Q") {
@@ -1622,6 +1646,8 @@
 					}
 				});
 
+
+				
 				//Controls
 				const controls = new OrbitControls(camera, renderer.domElement);
 				controls.addEventListener("change", render);
