@@ -28,7 +28,7 @@ body {
 canvas {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
 }
 
 .head {
@@ -55,23 +55,26 @@ canvas {
 }
 
 #container {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: row;
   z-index: 1;
-  top: 300px;
+  top: 33%;
   right: 10px;
+  align-items: center;
   background: linear-gradient(
     106.96deg,
     rgba(60, 30, 30, 0.1),
     rgba(101, 47, 47, 0.2)
   );
   width: 25vw;
-  height: 77%;
+  /* height: max-content + 30px; */
+  /* height: 30%; */
+  animation: alternate 1s infinite;
 }
 
 h2 {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: row;
   z-index: 1;
@@ -90,7 +93,7 @@ h2 {
 }
 
 .input {
-  margin-top: 30px;
+  margin-top: 5px;
   line-height: 25px;
 }
 
@@ -98,9 +101,10 @@ h2 {
   display: flex;
   flex-direction: column;
   padding: 0px;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  margin-bottom: 10px;
   font-family: "Inter";
   font-style: normal;
   font-weight: light;
@@ -150,6 +154,7 @@ h2 {
   background: rgba(224, 224, 224, 0.521);
   border: 0px solid #ffffff;
   color: rgb(0, 0, 0);
+  margin-top: 10px;
   font-family: "Inter";
   font-weight: 400;
   font-size: 12px;
@@ -160,8 +165,30 @@ h2 {
   align-self: flex-end;
 }
 
+#containerGeral {
+  position: absolute;
+
+  flex-direction: row;
+  z-index: 3;
+  top: 63.5%;
+  right: 10px;
+  background: linear-gradient(
+    106.96deg,
+    rgba(60, 30, 30, 0.1),
+    rgba(101, 47, 47, 0.2)
+  );
+  width: 25vw;
+  height: 30%;
+}
+
+#telhado,
+#edicula {
+}
+
 /* add style for #cube activated */
-#cube:focus {
+#cube:focus,
+#cube2:focus,
+#cube3:focus {
   background: rgba(27, 151, 223, 0.774);
 }
 
@@ -279,6 +306,14 @@ input[type="range"] {
 input[type="range"]:focus {
   outline: none;
 }
+
+/* style input when disabled */
+input[type="range"]:disabled,
+input[type="range"]:disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 input[type="range"]::-webkit-slider-runnable-track {
   width: 10vw;
   height: 1px;
@@ -365,7 +400,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 #containerPlano,
 #containerDeclive {
-  position: absolute;
+  position: fixed;
 
   flex-direction: row;
   z-index: 1;
@@ -377,7 +412,7 @@ input[type="range"]:focus::-ms-fill-upper {
     rgba(101, 47, 47, 0.2)
   );
   width: 25vw;
-  height: 77%;
+  height: max-content;
   display: none;
 }
 
