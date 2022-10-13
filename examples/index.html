@@ -1112,7 +1112,11 @@
 				}
 			};
 
-			modelo.onchange = function () {
+			modelo.onchange = function() {
+				addModelo();
+			}
+
+			 function addModelo () {
 				if (inclinacao.value == "Aclive") {
 				scene.remove(CASA);
 				if (modelo.value == "3S") {
@@ -1227,6 +1231,7 @@
 					meshs[i] = new Mesh(geometries[i], material);
 					scene.add(meshs[i]);
 				}
+				addModelo();
 				render();
 			};
 
