@@ -54,31 +54,12 @@ canvas {
   padding-bottom: 10px;
 }
 
-#container {
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  z-index: 1;
-  top: 33%;
-  right: 10px;
-  align-items: center;
-  background: linear-gradient(
-    106.96deg,
-    rgba(60, 30, 30, 0.1),
-    rgba(101, 47, 47, 0.2)
-  );
-  width: 25vw;
-  /* height: max-content + 30px; */
-  /* height: 30%; */
-  animation: alternate 1s infinite;
-}
-
 h2 {
   position: fixed;
   display: flex;
   flex-direction: row;
   z-index: 1;
-  top: 225px;
+  top: 29%;
   right: 10px;
   width: 25vw;
   height: 55px;
@@ -165,30 +146,27 @@ h2 {
   align-self: flex-end;
 }
 
-#containerGeral {
-  position: absolute;
-
-  flex-direction: row;
-  z-index: 3;
-  top: 63.5%;
-  right: 10px;
-  background: linear-gradient(
-    106.96deg,
-    rgba(60, 30, 30, 0.1),
-    rgba(101, 47, 47, 0.2)
-  );
-  width: 25vw;
-  height: 30%;
-}
-
 #telhado,
 #edicula {
+  background: rgba(224, 224, 224, 0.521);
+  border: 0px solid #ffffff;
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 12px;
+  width: 46%;
+  height: 25px;
+  margin-left: 12%;
+  cursor: pointer;
 }
 
 /* add style for #cube activated */
 #cube:focus,
 #cube2:focus,
-#cube3:focus {
+#cube3:focus,
+#telhado:focus,
+#edicula:focus {
   background: rgba(27, 151, 223, 0.774);
 }
 
@@ -269,9 +247,6 @@ h3 {
   color: #ffffff;
 }
 
-.cube {
-}
-
 .preco {
   position: absolute;
   width: 222px;
@@ -340,63 +315,25 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #c0e324;
 }
-/*
-input[type="range"]::-moz-range-track {
-  width: 100%;
-  height: 16px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 2px #000000;
-  background: #2497e3;
-  border-radius: 7px;
-  border: 0px solid #010101;
+
+#container {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+  top: 38%;
+  right: 10px;
+  align-items: center;
+  background: linear-gradient(
+    106.96deg,
+    rgba(60, 30, 30, 0.1),
+    rgba(101, 47, 47, 0.2)
+  );
+  width: 25vw;
+  /* height: max-content + 30px; */
+  /* height: 30%; */
+  animation: alternate 1s infinite;
 }
-input[type="range"]::-moz-range-thumb {
-  box-shadow: 3px 3px 4px #000031;
-  border: 1px solid #00001e;
-  height: 26px;
-  width: 38px;
-  border-radius: 18px;
-  background: transparent;
-  cursor: pointer;
-}
-input[type="range"]::-ms-track {
-  width: 100%;
-  height: 16px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-input[type="range"]::-ms-fill-lower {
-  background: #5fb4d8;
-  border: 0px solid #010101;
-  border-radius: 14px;
-  box-shadow: 1px 1px 2px #000000;
-}
-input[type="range"]::-ms-fill-upper {
-  background: #5fb4d8;
-  border: 0px solid #010101;
-  border-radius: 14px;
-  box-shadow: 1px 1px 2px #000000;
-}
-input[type="range"]::-ms-thumb {
-  margin-top: 1px;
-  box-shadow: 3px 3px 4px #000031;
-  border: 1px solid #00001e;
-  height: 26px;
-  width: 38px;
-  border-radius: 18px;
-  background: transparent;
-  cursor: pointer;
-}
-input[type="range"]:focus::-ms-fill-lower {
-  background: #5fb4d8;
-}
-input[type="range"]:focus::-ms-fill-upper {
-  background: #5fb4d8;
-} */
 
 #containerPlano,
 #containerDeclive {
@@ -404,7 +341,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
   flex-direction: row;
   z-index: 1;
-  top: 300px;
+  top: 38%;
   right: 10px;
   background: linear-gradient(
     106.96deg,
@@ -414,6 +351,22 @@ input[type="range"]:focus::-ms-fill-upper {
   width: 25vw;
   height: max-content;
   display: none;
+}
+
+#containerGeral {
+  position: fixed;
+  flex-direction: row;
+  z-index: 3;
+  top: 64%;
+  right: 10px;
+  background: linear-gradient(
+    106.96deg,
+    rgba(60, 30, 30, 0.1),
+    rgba(101, 47, 47, 0.2)
+  );
+  width: 25vw;
+  /* set height to max-content + 20px */
+  height: 82px;
 }
 
 @media screen and (max-width: 1000px) {
