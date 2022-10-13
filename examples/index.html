@@ -1609,7 +1609,19 @@
 
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				renderer.shadowMap.enabled = true;
-				//renderer.clippingPlanes = [localPlane];
+				//create a button to change the clipping plane
+				const button = document.getElementById("telhado");
+				button.addEventListener("click", function () {
+					if( button.innerHTML == "Retirar telhado"){
+					button.innerHTML = "Mostrar telhado" ;
+					renderer.clippingPlanes = [localPlane];
+					console.log('clicou')
+					}else{
+						button.innerHTML = "Retirar telhado" ;
+						renderer.clippingPlanes = [];
+					}
+				});
+				// renderer.clippingPlanes = [localPlane];
 
 				//Controls
 				const controls = new OrbitControls(camera, renderer.domElement);
