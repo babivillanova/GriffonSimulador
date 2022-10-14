@@ -61,7 +61,7 @@ class MeshStandardMaterial extends Material {
 
 		this.type = 'MeshStandardMaterial';
 
-		this.color = new Color( 0xffffff ); // diffuse
+		this.color = new Color( 0x000000 ); // diffuse
 		this.roughness = 1.0;
 		this.metalness = 0.0;
 

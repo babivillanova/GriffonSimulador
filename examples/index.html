@@ -454,6 +454,7 @@
 		<script type="module">
 			import * as THREE from "three";
 			import Stats from "./jsm/libs/stats.module.js";
+			
 
 			import {
 				BoxGeometry,
@@ -501,13 +502,15 @@
 
 			import { IFCLoader } from "three/addons/loaders/IFCLoader.js";
 
+			import { Water } from './jsm/objects/Water2.js';
+
 			let mesh,
 				model,
 				IFCModel,
 				CASA,
 				lightHelper,
 				shadowCameraHelper,
-				localPlane, ediculaGeo, ediculaMesh; //modelo da casa
+				localPlane, ediculaGeo, ediculaMesh, water; //modelo da casa
 			let camera, scene, renderer, geometry, orbit, all;
 			let geometries = [];
 			let verticesS = [];
@@ -994,11 +997,33 @@
 							]
 			}
 			
-			const material = new MeshPhongMaterial({
+
+			
+			const textureLoader = new THREE.TextureLoader();
+			const gColor = textureLoader.load('textures/Grass/Grass_004_SD/Grass_004_COLOR.jpg');
+			const gNormal = textureLoader.load('textures/Grass/Grass_004_SD/Grass_004_NORM.jpg');
+			const gRough = textureLoader.load('textures/Grass/Grass_004_SD/Grass_004_ROUGH.jpg');
+			const gAmbient = textureLoader.load('textures/Grass/Grass_004_SD/Grass_004_OCC.jpg');
+			const gDisp = textureLoader.load('textures/Grass/Grass_004_SD/Grass_004_DISP.png');
+
+
+			// const material = new MeshPhongMaterial({
+			// 	map: gramatexture,
+			// 	roughness: 0.5,
+			// 	// color: "#39542e",
+			// 	flatShading: true,
+			// 	side: DoubleSide,
+			// });
+
+
+			const material = new THREE.MeshPhongMaterial({
 				color: "#39542e",
 				flatShading: true,
 				side: DoubleSide,
 			});
+
+
+			
 
 			const material2 = new MeshPhongMaterial({
 				color: "gray",
@@ -1007,10 +1032,14 @@
 			});
 
 			const agua = new MeshPhongMaterial({
-				color: "blue",
+				color: "white",
 				flatShading: true,
 				side: DoubleSide,
 			});
+
+			const watertexture = new THREE.TextureLoader().load( 'textures/water2.jpg' );
+// immediately use the texture for material creation
+const watermaterial = new THREE.MeshBasicMaterial( { map: watertexture } );
 
 			
 			const loadingManager = new THREE.LoadingManager();
@@ -1069,15 +1098,36 @@
 
 			setSizeS();
 
+			const params = {
+				color: '#ffffff',
+				scale: 4,
+				flowX: 1,
+				flowY: 1
+			};
+
 			const pgeometry = new THREE.BoxGeometry(3, 1.5, 5);
-				const piscina = new THREE.Mesh(pgeometry, agua);
+				const piscina = new THREE.Mesh(pgeometry, watermaterial);
 				piscina.position.set(1.5, -0.5, fundodaCasa - 3.2);
+				water = new Water( pgeometry, {
+					color: params.color,
+					scale: params.scale,
+					flowDirection: new THREE.Vector2( params.flowX, params.flowY ),
+					textureWidth: 100,
+					textureHeight: 100
+				} );
+
+				water.position.set(1.5, -0.4, fundodaCasa - 3.2)
+				// water.position.y = 1;
+				// water.rotation.x = Math.PI * - 0.5;
+				
+
 
 			cube.onclick = function () {
 				
 
 				//add if statement to check if piscina is childelement of scene
 				if (scene.getObjectByName("piscina") === undefined) {
+					// scene.add( water );
 					scene.add(piscina);
 					piscina.name = "piscina";
 					cube.innerHTML = "Remover Piscina";
@@ -1716,6 +1766,31 @@
 					meshs2[j] = new Mesh(geometries2[j], material2);
 					scene.add(meshs2[j]);
 				}
+
+
+				// const plano2 = new THREE.Mesh(new THREE.PlaneGeometry (2,2,512,512), 
+				// new THREE.MeshPhongMaterial(
+				// 	{
+						
+
+				// 		// map: gColor,
+				// normalMap: gNormal,
+				// normalScale: new THREE.Vector2(1,1),
+				// roughnessMap: gRough,
+				// // aoMap: gAmbient,
+				// bumpMap: gDisp,
+				// bumpScale: 2,
+				// displacementMap: gDisp,
+				// // displacementScale: 0.1,
+				// // roughness: 0.5,
+				// color: "#39542e",
+				// flatShading: true,
+				// side: DoubleSide,
+				// 	}
+				// )
+				// );
+				// plano2.position.set(0,10,0);
+				// scene.add(plano2);
 
 				// let shader = THREE.ShaderChunk.shadowmap_pars_fragment;
 
