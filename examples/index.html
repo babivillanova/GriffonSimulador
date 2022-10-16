@@ -20,7 +20,7 @@
 			<div id="direita">
 				<main id="preco">R$ 800</main>
 				<div id="subtitulo">
-					1️⃣Inclinação
+				<h4>	1️⃣Inclinação </h4>
 					<select name="inclinacao" id="inclinacao" form="inclinacao">
 						<option value="Plano" >Plano</option>
 						<option value="Declive">Declive</option>
@@ -28,7 +28,7 @@
 					</select>
 				</div>
 				<div id="subtitulo">
-					2️⃣Carbon
+				<h4>	2️⃣Carbon </h4>
 					<select name="modelo" id="modelo" form="modelo">
 						<!-- <option value="2S+Q">2S+Q</option> -->
 						<option value="3S" >3S</option>
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		
+		<canvas id="canvas">	</canvas>
 		<div id="menu">
 			<h2>3️⃣Parâmetros</h2>
 		<div id="container">
@@ -538,6 +538,8 @@
 			let sizeS = [];
 			let sizeS2 = [];
 			
+			let canvas = document.getElementById("canvas");
+console.log(canvas.offsetHeight)
 			function setSizeS() {
 				sizeS = [
 					[
@@ -1621,14 +1623,14 @@ const watermaterial = new THREE.MeshBasicMaterial( { map: watertexture } );
 
 			function init() {
 				scene = new Scene();
-				//				scene.background = new Color(0x000000);
-				// const near = 0;
-				// const far = 70;
-				// scene.fog = new THREE.Fog(0xffffff, near, far);
+								// scene.background = new Color(0x000000);
+				const near = 0;
+				const far = 70;
+				scene.fog = new THREE.Fog(0x000000, near, far);
 
 				camera = new PerspectiveCamera(
 					75,
-					window.innerWidth / window.innerHeight,
+					canvas.offsetWidth / canvas.offsetHeight,
 					0.1,
 					500
 				);
@@ -1710,10 +1712,12 @@ const watermaterial = new THREE.MeshBasicMaterial( { map: watertexture } );
 
 				renderer = new THREE.WebGLRenderer({ antialias: true });
 				renderer.setPixelRatio(window.devicePixelRatio);
-				renderer.setSize(window.innerWidth, window.innerHeight);
-				// renderer.setClearColor(scene.fog(0x000000, 0.5)); // precisa passar a cor como variavel
-
+				// renderer.setClearColor(0xfefefe, 0)
+				renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
 				document.body.appendChild(renderer.domElement);
+			
+					console.log(canvas.offsetWidth)
+					console.log(camera)
 
 				renderer.outputEncoding = THREE.sRGBEncoding;
 				renderer.shadowMap.enabled = true;
@@ -1811,9 +1815,9 @@ const watermaterial = new THREE.MeshBasicMaterial( { map: watertexture } );
 			}
 
 			function onWindowResize() {
-				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.aspect = canvas.offsetWidth / canvas.offsetHeight;
 				camera.updateProjectionMatrix();
-				renderer.setSize(window.innerWidth, window.innerHeight);
+				renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
 
 				render();
 			}
