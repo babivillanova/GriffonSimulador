@@ -109,6 +109,7 @@ h2 {
 }
 #direita {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   align-items: right;
@@ -171,6 +172,7 @@ h2 {
 
 select {
   appearance: none;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   background: rgba(224, 224, 224, 0.521);
@@ -200,6 +202,10 @@ select {
   line-height: 36px;
 
   color: #ffffff;
+}
+
+h4 {
+  margin: 0;
 }
 
 output {
@@ -329,20 +335,34 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 
 @media screen and (max-width: 1000px) {
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
   #titulo {
-    transform: scale(2);
+    /* transform: scale(2); */
+    padding-left: 0;
   }
 
   #canvas {
     position: fixed;
     top: 0;
-    height: 800px;
+    height: 60vh;
   }
 
   #direita {
+    position: absolute;
+    top: 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: start;
+    width: 100vw;
+  }
+
+  #subtitulo {
+    padding-right: 30px;
   }
 
   #preco {
@@ -354,9 +374,90 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   }
 
   select {
+    font-size: 29px;
+    color: white;
+    width: 270px;
+    background-color: rgb(110, 110, 110);
+    margin-top: 25px;
+    /* box-shadow: inset 0 0 10px rgba(255, 255, 255); */
+    border-radius: 60px;
+    height: 60px;
   }
 
-  /* #container {
+  #cube,
+  #cube2,
+  #cube3 {
+    font-size: 29px;
+    color: white;
+    width: 270px;
+    background-color: rgb(110, 110, 110);
+    border-radius: 60px;
+    height: 60px;
+    position: fixed;
+    top: 250px;
+    left: 55px;
+  }
+
+  #menu {
+    width: 100%;
+    height: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  #edicula {
+    font-size: 29px;
+    color: white;
+    width: 270px;
+    background-color: rgb(110, 110, 110);
+    border-radius: 60px;
+    height: 60px;
+    position: fixed;
+    top: 250px;
+    left: 230px;
+  }
+
+  #telhado {
+    font-size: 29px;
+    color: white;
+    width: 270px;
+    background-color: rgb(110, 110, 110);
+    border-radius: 60px;
+    height: 60px;
+    position: fixed;
+    top: 250px;
+    left: 530px;
+  }
+
+  h2 {
+    display: none;
+  }
+  #container {
+    position: inherit;
+    font-size: 40px;
+    top: 60%;
+    background-color: rgb(110, 110, 110);
+    height: 40%;
+    width: 100%;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .label {
+    left: 20px;
+    font-size: 30px;
+    width: max-content;
+    line-height: 50px;
+  }
+  .input {
+    width: 50%;
+    height: 50px;
+    font-size: 30px;
+  }
+}
+
+/* #container {
     top: 20px;
     left: 10px;
     width: 94vw;
@@ -465,4 +566,3 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   h2 {
     display: none;
   }*/
-}
