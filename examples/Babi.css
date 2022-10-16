@@ -341,24 +341,36 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
     border: 0;
   }
 
+  .head {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    z-index: 2;
+    width: 100vw;
+  }
+
   #titulo {
-    /* transform: scale(2); */
+    transform: scale(1.5);
     padding-left: 0;
+    padding-right: 100px;
+    padding-top: 30px;
   }
 
   #canvas {
     position: fixed;
     top: 0;
-    height: 60vh;
+    height: 72vh;
   }
 
   #direita {
-    position: absolute;
+    position: fixed;
     top: 100px;
     display: flex;
     flex-direction: row;
     justify-content: start;
-    width: 100vw;
+    width: 94vw;
+    height: 30px;
   }
 
   #subtitulo {
@@ -375,27 +387,29 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 
   select {
     font-size: 29px;
-    color: white;
+    color: rgb(0, 0, 0);
     width: 270px;
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(255, 255, 255);
     margin-top: 25px;
     /* box-shadow: inset 0 0 10px rgba(255, 255, 255); */
     border-radius: 60px;
     height: 60px;
+    font-weight: 600;
   }
 
   #cube,
   #cube2,
   #cube3 {
     font-size: 29px;
-    color: white;
+    color: rgb(0, 0, 0);
     width: 270px;
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(255, 255, 255);
     border-radius: 60px;
     height: 60px;
     position: fixed;
-    top: 250px;
-    left: 55px;
+    top: 200px;
+    left: 57px;
+    font-weight: 600;
   }
 
   #menu {
@@ -408,26 +422,28 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 
   #edicula {
     font-size: 29px;
-    color: white;
+    color: rgb(4, 4, 4);
     width: 270px;
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(255, 255, 255);
     border-radius: 60px;
     height: 60px;
     position: fixed;
-    top: 250px;
+    top: 200px;
     left: 230px;
+    font-weight: 600;
   }
 
   #telhado {
     font-size: 29px;
-    color: white;
+    color: rgb(0, 0, 0);
     width: 270px;
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(255, 255, 255);
     border-radius: 60px;
     height: 60px;
     position: fixed;
-    top: 250px;
+    top: 200px;
     left: 530px;
+    font-weight: 600;
   }
 
   h2 {
@@ -435,25 +451,100 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   }
   #container {
     position: inherit;
+    display: flex;
     font-size: 40px;
-    top: 60%;
-    background-color: rgb(110, 110, 110);
-    height: 40%;
+    top: 68%;
+    background-color: rgb(220, 220, 220);
+    height: 28%;
     width: 100%;
     padding-right: 0;
     margin-right: 0;
+    border-bottom-color: rgb(26, 26, 26);
+    border-bottom-width: 20px;
+    justify-content: top;
   }
 
   .label {
-    left: 20px;
+    color: black;
+    font-weight: 600;
+
     font-size: 30px;
-    width: max-content;
-    line-height: 50px;
+
+    width: 70%;
+    line-height: 80px;
+    justify-content: top;
   }
   .input {
-    width: 50%;
-    height: 50px;
+    width: 40%;
+    /* height: 50px; */
     font-size: 30px;
+    line-height: 40px;
+    justify-content: top;
+    margin-top: 18px;
+    margin-left: 10px;
+    padding: 0;
+    border: 0;
+  }
+  form {
+    width: 100%;
+  }
+
+  .future {
+    display: none;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    margin: 0;
+    width: 25vw;
+    height: 72px;
+    background: transparent;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+
+  /* style input when disabled */
+  input[type="range"]:disabled,
+  input[type="range"]:disabled::-webkit-slider-thumb {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 10vw;
+    height: 20px;
+    cursor: pointer;
+    /* box-shadow: 1px 1px 2px #000000; */
+    background: #6c684a;
+    border-radius: 7px;
+    border: 0px solid #010101;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 3px 3px 4px #00003144;
+    border: 0px solid #00001e;
+    height: 20px;
+    width: 40px;
+    border-radius: 30px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: 0px;
+  }
+
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #c0e324;
+  }
+
+  output {
+    font-size: 35px;
+    color: black;
+    font-family: "inter";
+    font-weight: 600;
+    position: fixed;
+    margin-top: 12px;
+    margin-left: 10px;
   }
 }
 
