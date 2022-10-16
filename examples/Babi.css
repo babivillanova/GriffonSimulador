@@ -473,6 +473,23 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
     justify-content: top;
   }
 
+  #containerPlano,
+  #containerDeclive {
+    position: inherit;
+    display: flex;
+    font-size: 40px;
+    top: 68%;
+    background-color: rgb(220, 220, 220);
+    height: 28%;
+    width: 100%;
+    padding-right: 0;
+    margin-right: 0;
+    border-bottom-color: rgb(26, 26, 26);
+    border-bottom-width: 20px;
+    justify-content: top;
+    display: none;
+  }
+
   .label {
     color: black;
     font-weight: 400;
